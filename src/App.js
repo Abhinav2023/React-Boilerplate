@@ -20,12 +20,31 @@ const app=(props)=>{
       })
     )
   }
+  const InputChangeHandler=(event)=>{
+    return(
+      personStateHandler({
+        person:[
+          {name: event.target.value, age:18},
+          {name: "Bansal", age:19} 
+        ]
+      })
+    )
+  }
   return (
     <div className="App">
       <p>Hello, This is working</p>
-      <button onClick={SwitchStateHandler   }>Click Me!</button>
-      <Person name={personState.person[0].name} age={personState.person[0].age}/>
-      <Person name={personState.person[1].name} age={personState.person[1].age} >Hello, from chideren</Person>
+      <button onClick={SwitchStateHandler}>Click Me!</button>
+      <Person 
+        name={personState.person[0].name} 
+        age={personState.person[0].age}
+      />
+      <Person 
+        name={personState.person[1].name} 
+        age={personState.person[1].age} 
+        click={InputChangeHandler}
+      >
+        Hello, from chideren
+      </Person>
     </div>
   );
 }
